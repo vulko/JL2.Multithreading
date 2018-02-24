@@ -2,6 +2,12 @@ package kvolkov.java.lectures.multhithreading.simple;
 
 import kvolkov.java.lectures.multhithreading.Utils;
 
+/**
+ * This is a simple example of extending a {@link Thread} class.
+ * 
+ * @author Kirill Volkov (vulkovk@gmail.com)
+ *         https://github.com/vulko
+ */
 public class SimpleThreadingWithNesting {
 
 	public static class SimpleWorkingThread extends Thread {

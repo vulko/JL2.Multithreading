@@ -2,6 +2,12 @@ package kvolkov.java.lectures.multhithreading.simple;
 
 import kvolkov.java.lectures.multhithreading.Utils;
 
+/**
+ * This is a simple example of stopping a {@link Thread}.
+ * 
+ * @author Kirill Volkov (vulkovk@gmail.com)
+ *         https://github.com/vulko
+ */
 public class SimpleThreadingStop {
 	
 	private static SimpleWorkingThread mWorkerThread;

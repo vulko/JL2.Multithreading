@@ -2,6 +2,12 @@ package kvolkov.java.lectures.multhithreading.simple;
 
 import kvolkov.java.lectures.multhithreading.Utils;
 
+/**
+ * This is a simple example of using a {@link Thread#join()}.
+ * 
+ * @author Kirill Volkov (vulkovk@gmail.com)
+ *         https://github.com/vulko
+ */
 public class SimpleThreadingJoin {
 
 	public static void execute() {

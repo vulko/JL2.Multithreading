@@ -2,6 +2,12 @@ package kvolkov.java.lectures.multhithreading.simple;
 
 import kvolkov.java.lectures.multhithreading.Utils;
 
+/**
+ * This is a simple example of {@link Thread} usage with generic interruption mechanism.
+ * 
+ * @author Kirill Volkov (vulkovk@gmail.com)
+ *         https://github.com/vulko
+ */
 public class SimpleThreadingStopWithInterrupt {
 	
 	private static SimpleWorkingThread mWorkerThread;
