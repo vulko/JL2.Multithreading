@@ -8,6 +8,9 @@ import kvolkov.java.lectures.multhithreading.simple.SimpleThreadingStop;
 import kvolkov.java.lectures.multhithreading.simple.SimpleThreadingStopWithInterrupt;
 import kvolkov.java.lectures.multhithreading.simple.SimpleThreadingWaitNotify;
 import kvolkov.java.lectures.multhithreading.simple.SimpleThreadingWithNesting;
+import kvolkov.java.lectures.multhithreading.synchronization.SimpleCounterExample;
+import kvolkov.java.lectures.multhithreading.synchronization.SimpleDeadlockExample;
+import kvolkov.java.lectures.multhithreading.synchronization.SimpleVolatileExample;
 
 public class main {
 	
@@ -19,13 +22,18 @@ public class main {
 		INTERRUPT_THREAD_EXAMPLE,
 		JOIN_THREAD_EXAMPLE,
 		PRIORITY_COMPARSION_EXAMPLE,
-		WAIT_NOTIFY_EXAMPLE
+		WAIT_NOTIFY_EXAMPLE,
+		COUNTER_EXAMPLE,
+		COUNTER_EXAMPLE_SYNCHRONIZED,
+		DEADLOCK_EXAMPLE,
+		VOLATILE_EXAMPLE_NOT_SYNCED,
+		VOLATILE_EXAMPLE_SYNCED
 	}
 	
 	public static void main(String[] args) {
 		
 		// Select an example to run
-		final JL2_EXAMPLE executedExample = JL2_EXAMPLE.RUNNABLE_EXAMPLE;
+		final JL2_EXAMPLE executedExample = JL2_EXAMPLE.VOLATILE_EXAMPLE_NOT_SYNCED;
 		
 		switch(executedExample) {
 		case RUNNABLE_EXAMPLE:
@@ -70,6 +78,34 @@ public class main {
 		case WAIT_NOTIFY_EXAMPLE:
 			// simple wait/notify example
 			SimpleThreadingWaitNotify.execute();
+			break;
+
+		case COUNTER_EXAMPLE:
+			// simple example with a counter modified by 2 threads, with no
+			// synchronization, so sometimes "expected value != printed value"
+			SimpleCounterExample.execute();
+			break;
+
+		case COUNTER_EXAMPLE_SYNCHRONIZED:
+			// simple example with a counter modified by 2 threads, synchronized
+			// version without any issues
+			SimpleCounterExample.executeSynchronously();
+			break;
+
+		case DEADLOCK_EXAMPLE:
+			// simple deadlock example
+			SimpleDeadlockExample.execute();
+			break;
+
+		case VOLATILE_EXAMPLE_NOT_SYNCED:
+			// simple example when missing volatile causes issues
+			SimpleVolatileExample.execute();
+			break;
+
+
+		case VOLATILE_EXAMPLE_SYNCED:
+			// simple example when adding volatile resolves issues
+			SimpleVolatileExample.executeSynced();
 			break;
 
 			default:
