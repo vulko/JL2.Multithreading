@@ -1,5 +1,9 @@
 package kvolkov.java.lectures.multhithreading;
 
+import kvolkov.java.lectures.multhithreading.complex.BlockingQueueExample;
+import kvolkov.java.lectures.multhithreading.complex.DownloadSpeedTestFuture;
+import kvolkov.java.lectures.multhithreading.complex.DownloadSpeedTestThreadPoolExecutor;
+import kvolkov.java.lectures.multhithreading.complex.DownloadSpeedTestThreaded;
 import kvolkov.java.lectures.multhithreading.simple.SimpleThreading;
 import kvolkov.java.lectures.multhithreading.simple.SimpleThreadingDaemon;
 import kvolkov.java.lectures.multhithreading.simple.SimpleThreadingJoin;
@@ -27,13 +31,17 @@ public class main {
 		COUNTER_EXAMPLE_SYNCHRONIZED,
 		DEADLOCK_EXAMPLE,
 		VOLATILE_EXAMPLE_NOT_SYNCED,
-		VOLATILE_EXAMPLE_SYNCED
+		VOLATILE_EXAMPLE_SYNCED,
+		SINGLETHREADED_DOWNLOAD_SPEED_MEASUREMENT,
+		THREADPOOL_DOWNLOAD_SPEED_MEASUREMENT,
+		FUTURE_DOWNLOAD_SPEED_MEASUREMENT,
+		BLOCKING_QUEUE_EXAMPLE
 	}
 	
 	public static void main(String[] args) {
 		
 		// Select an example to run
-		final JL2_EXAMPLE executedExample = JL2_EXAMPLE.VOLATILE_EXAMPLE_NOT_SYNCED;
+		final JL2_EXAMPLE executedExample = JL2_EXAMPLE.FUTURE_DOWNLOAD_SPEED_MEASUREMENT;
 		
 		switch(executedExample) {
 		case RUNNABLE_EXAMPLE:
@@ -108,7 +116,27 @@ public class main {
 			SimpleVolatileExample.executeSynced();
 			break;
 
-			default:
+		case SINGLETHREADED_DOWNLOAD_SPEED_MEASUREMENT:
+			// simple example of download speed measurement using a single thread
+			DownloadSpeedTestThreaded.execute();
+			break;
+
+		case THREADPOOL_DOWNLOAD_SPEED_MEASUREMENT:
+			// simple example of download speed measurement using a thread pool
+			DownloadSpeedTestThreadPoolExecutor.execute();
+			break;
+
+		case FUTURE_DOWNLOAD_SPEED_MEASUREMENT:
+			// simple example of download speed measurement using a thread pool
+			DownloadSpeedTestFuture.execute();
+			break;
+
+		case BLOCKING_QUEUE_EXAMPLE:
+			// simple example of BlockingQueue usage
+			BlockingQueueExample.execute();
+			break;
+
+		default:
 				System.out.println("No example selected");
 		}
 
