@@ -32,8 +32,8 @@ public class SimpleThreadingPriorityPreformanceCompare {
                 double root = Math.cbrt(d);
             }
 			finishTS = System.currentTimeMillis();
-			double elapsedTime = ((double) (finishTS - startTS)) / 1000.0d;
-			System.out.println(getName() + " finished job in " + elapsedTime + " seconds");
+			double elapsedTime = ((double) (finishTS - startTS)) ;
+			System.out.println(getName() + " finished job in " + elapsedTime + " milliseconds");
 		}
 		
 	}

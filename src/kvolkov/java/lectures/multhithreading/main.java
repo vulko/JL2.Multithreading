@@ -41,7 +41,7 @@ public class main {
 	public static void main(String[] args) {
 		
 		// Select an example to run
-		final JL2_EXAMPLE executedExample = JL2_EXAMPLE.FUTURE_DOWNLOAD_SPEED_MEASUREMENT;
+		final JL2_EXAMPLE executedExample = JL2_EXAMPLE.DEADLOCK_EXAMPLE;
 		
 		switch(executedExample) {
 		case RUNNABLE_EXAMPLE:

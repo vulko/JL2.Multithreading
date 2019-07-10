@@ -19,33 +19,35 @@ public class SimpleDeadlockExample {
         
         new Thread(new Runnable() {
         	public void run() {
+        		
+        		while(true) {
+            		synchronized (obj1) {
+                		System.out.println("Thread 1 captured LOCK 1");
 
-        		synchronized (obj1) {
-            		System.out.println("Thread 1 captured LOCK 1");
-    				Utils.waitFor(100, false);
+            			synchronized (obj2) {
+                    		System.out.println("Thread 1 captured LOCK 1 and LOCK 2");
+            			}
+            		}
 
-        			synchronized (obj2) {
-                		System.out.println("Thread 1 captured LOCK 1 and LOCK 2");
-        			}
+            		System.out.println("Deadlock didn't happen!");	
         		}
-
-        		System.out.println("You will never see this message!");
         	}
         	}).start();
 
         new Thread(new Runnable() {
         	public void run() {
 
-        		synchronized (obj2) {
-            		System.out.println("Thread 2 captured LOCK 2");
-        			Utils.waitFor(100, false);
+        		while (true) {
+            		synchronized (obj2) {
+                		System.out.println("Thread 2 captured LOCK 2");
 
-        			synchronized (obj1) {
-                		System.out.println("Thread 2 captured LOCK 1 and LOCK 2");
-        			}
+            			synchronized (obj1) {
+                    		System.out.println("Thread 2 captured LOCK 1 and LOCK 2");
+            			}
+            		}
+            		
+            		System.out.println("Deadlock didn't happen!");        			
         		}
-        		
-        		System.out.println("You will never see this message!");
         	}
         	}).start();
 	}

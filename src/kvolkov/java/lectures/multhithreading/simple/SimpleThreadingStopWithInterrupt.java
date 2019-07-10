@@ -21,7 +21,7 @@ public class SimpleThreadingStopWithInterrupt {
 			int counter = 0;
 			while (!Thread.interrupted()) {
 				System.out.println("thread run was called " + (++counter) + " times");
-				Utils.waitFor(100, false);
+				//Utils.waitFor(100, false);
 			}
 		}
 		
@@ -36,6 +36,7 @@ public class SimpleThreadingStopWithInterrupt {
 	
 	public static void stop() {
 		if (mWorkerThread != null) {
+			System.out.println("Interrupt thread");
 			mWorkerThread.interrupt();
 			mWorkerThread = null;
 		}

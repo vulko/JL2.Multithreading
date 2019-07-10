@@ -42,6 +42,7 @@ public class SimpleThreadingStop {
 	
 	public static void stop() {
 		if (mWorkerThread != null) {
+			System.out.println("Finish called");
 			mWorkerThread.finish();
 			mWorkerThread = null;
 		}
